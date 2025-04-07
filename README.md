@@ -1,7 +1,5 @@
-# todo-app
-Created a webpage via Streamlit Cloud with AWS LambDa, IAM, APIs and DynamoDB.
-
 # 📝 To-Do List Web App (Serverless, Streamlit + AWS)
+
 This is a fully serverless to-do list application built using **Streamlit** for the frontend and **AWS services** for the backend.
 
 Users can:
@@ -38,6 +36,7 @@ Users can:
 ---
 
 ## 🗃 DynamoDB Table Setup
+
 - **Table Name**: `Tasks`
 - **Primary Key**: `user_id` *(String)*
 - **Sort Key**: `task_id` *(String)*
@@ -67,27 +66,48 @@ Source code for all Lambdas is in the [`/lambda`](lambda/) folder:
 | `Auto_Loading_From_DynamoDB.py` | Load all tasks for a given user |
 
 Each function is exposed via **API Gateway POST routes** like:
-/add_task /delete /update_status /get_tasks
 
-Project structure:
-📁 project-root/ 
-app.py 
-equirements.txt
-README.md 
-Lambda folders include:
-add_task.py
-delete_task.py
-update_task_status.py
-Auto_Loading_From_DynamoDB.py
+```
+/add_task
+/delete
+/update_status
+/get_tasks
+```
 
-👤 Author
-Kris Liu
-Email: kris.shuyi.l@gmail.com
-GitHub: @KrisLiu7
+All routes share one API Gateway instance.
 
-📌 Notes
+---
+
+## 🌐Deployed on Streamlit Cloud
+
+## 📁 Project Structure
+
+```
+📁 todo-app/
+├── app.py
+├── requirements.txt
+├── README.md
+└── lambda/
+    ├── add_task.py
+    ├── delete_task.py
+    ├── update_task_status.py
+    └── Auto_Loading_From_DynamoDB.py
+```
+
+---
+
+## 👤 Author
+
+**Kris Liu**  
+Email: kris.shuyi.l@gmail.com  
+GitHub: [@KrisLiu7](https://github.com/KrisLiu7)
+
+---
+
+## 📌 Notes
+
 This is a class project built to demonstrate:
-Serverless architecture
-Multi-user support
-Cloud-based deployment
-Secure API integration using AWS Lambda and DynamoDB
+- Serverless architecture
+- Multi-user support
+- Cloud-based deployment
+- Secure API integration using AWS Lambda and DynamoDB
