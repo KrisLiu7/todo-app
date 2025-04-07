@@ -1,0 +1,58 @@
+import json
+import boto3
+import traceback
+
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('Tasks')  # make sure this matches your table name exactly
+
+def lambda_handler(event, context):
+    print("Received event:", event)
+
+    try:
+        # 🔍 Debug log to show what body really looks like
+        print("EVENT BODY RAW:", event['body'])
+
+        # Handle string or parsed JSON
+        if isinstance(event['body'], str):
+            body = json.loads(event['body'])
+        else:
+            body = event['body']
+
+        # Extract fields
+        user_id = body.get("user_id")
+        task_id = body.get("task_id")
+        new_status = body.get("status")
+
+        print("Parsed values:", user_id, task_id, new_status)
+
+        if not user_id or not task_id or not new_status:
+            return {
+                "statusCode": 400,
+                "body": json.dumps({"message": "Missing required fields"})
+            }
+
+        # Update the task's status in DynamoDB
+        response = table.update_item(
+            Key={
+                'user_id': user_id,
+                'task_id': task_id
+            },
+            UpdateExpression="SET #s = :s",
+            ExpressionAttributeNames={"#s": "status"},
+            ExpressionAttributeValues={":s": new_status},
+            ReturnValues="UPDATED_NEW"
+        )
+
+        return {
+            "statusCode": 200,
+            "body": json.dumps({"message": "Status updated successfully"})
+        }
+
+    except Exception as e:
+        traceback_str = traceback.format_exc()
+        print("Full traceback:", traceback_str)
+
+        return {
+            "statusCode": 500,
+            "body": json.dumps({"message": str(e)})
+        }
