@@ -1,0 +1,45 @@
+import json
+import boto3
+import traceback
+
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('Tasks')  # your DynamoDB table name
+
+def lambda_handler(event, context):
+    print("Received event:", event)
+
+    try:
+        body = json.loads(event['body']) if isinstance(event['body'], str) else event['body']
+        
+        user_id = body.get("user_id")
+        task_id = body.get("task_id")
+
+        print("Parsed values:", user_id, task_id)
+
+        if not user_id or not task_id:
+            return {
+                "statusCode": 400,
+                "body": json.dumps({"message": "Missing user_id or task_id"})
+            }
+
+        # 🔥 Correct key structure for delete
+        table.delete_item(
+            Key={
+                'user_id': user_id,
+                'task_id': task_id
+            }
+        )
+
+        return {
+            "statusCode": 200,
+            "body": json.dumps({"message": "Task deleted successfully"})
+        }
+
+    except Exception as e:
+        traceback_str = traceback.format_exc()
+        print("Error deleting task:", traceback_str)
+
+        return {
+            "statusCode": 500,
+            "body": json.dumps({"message": str(e)})
+        }
