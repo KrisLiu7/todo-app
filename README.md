@@ -69,6 +69,16 @@ Source code for all Lambdas is in the [`/lambda`](lambda/) folder:
 Each function is exposed via **API Gateway POST routes** like:
 /add_task /delete /update_status /get_tasks
 
+Project Structure
+├── app.py                 # Main Streamlit app
+├── requirements.txt       # Python dependencies
+├── README.md              # This file
+└── lambda/                # All AWS Lambda source code
+    ├── add_task.py
+    ├── delete_task.py
+    ├── update_task_status.py
+    └── Auto_Loading_From_DynamoDB.py
+
 👤 Author
 Kris Liu
 Email: kris.shuyi.l@gmail.com
