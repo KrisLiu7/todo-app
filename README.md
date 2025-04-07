@@ -79,6 +79,7 @@ All routes share one API Gateway instance.
 ---
 
 ## 🌐Deployed on Streamlit Cloud
+https://todo-app-qs9amf4wq5e4xeilsfjkqs.streamlit.app/
 
 ## 📁 Project Structure
 
