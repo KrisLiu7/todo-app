@@ -2,36 +2,35 @@
 
 This is a fully serverless to-do list application built using **Streamlit** for the frontend and **AWS services** for the backend.
 
-Users can:
-- ✅ Log in with a password
-- ✅ Add, view, update, and delete tasks
-- ✅ Filter by task status: *Waiting to start*, *In Progress*, *Finished*
-- ✅ Automatically sync all data to **DynamoDB**
+## 🚀 How to Use:
+- 🧠  Log in with a password (`NoBobaToday`)
+- ✅ Add, view, update, and delete tasks (title + optional description, status, due date)
+- 🔄 Update and filter by task status with dropdown: *Waiting to start*, *In Progress*, *Finished*
+- 🔐 Automatically sync all data to **DynamoDB**, tasks are linked to your `user_id` (username).
 - ✅ Host the app on **Streamlit Cloud** and connect to AWS via API Gateway and Lambda
 
 ---
+## Features
 
-## 🔧 Tech Stack
+| Feature | Description |
+|---------|-------------|
+| **Task Creation** | Add new tasks with a title and description. Requires at least 1 character in the task name. |
+| **Task Management** | View, update, and delete your tasks in an intuitive interface. |
+| **Progress Tracking** | Update and track the progress of each task (Not Started, In Progress, Completed). |
+| **Persistence** | Tasks are automatically saved to and loaded from AWS DynamoDB using your user ID. |
+| **Data Retention** | Your tasks remain accessible even after browser refresh or reopening the application. |
+| **Creation Time Sorting** | Tasks are displayed in order of creation time for better organization. |
 
-| Layer       | Tech                  |
-|-------------|------------------------|
-| Frontend    | Streamlit (Python)     |
-| Auth        | Simple password-based login in-app |
-| Backend API | AWS API Gateway        |
-| Logic       | AWS Lambda Functions   |
-| Database    | DynamoDB               |
-| Deployment  | Streamlit Cloud        |
-| Versioning  | Git + GitHub           |
+## Technology Stack
 
+| Component | Technology |
+|-----------|------------|
+| **Frontend** | HTML, CSS, JavaScript |
+| **Backend** | AWS Lambda (Python) |
+| **Database** | AWS DynamoDB |
+| **Authentication** | AWS Cognito |
+| **Deployment** | AWS Amplify |
 ---
-
-## 🚀 How to Use
-
-1. 🧠 Log in using a username and password (`NoBobaToday`)
-2. ✅ Add a task (title + optional description, status, due date)
-3. 🔄 Update its status using a dropdown
-4. 🗑 Delete a task with the delete button
-5. 🔐 Tasks are linked to your `user_id` (username) and persist in DynamoDB
 
 ---
 
@@ -81,21 +80,17 @@ All routes share one API Gateway instance.
 ## 🌐Deployed on Streamlit Cloud
 [https://todo-app-qs9amf4wq5e4xeilsfjkqs.streamlit.app/](https://todo-app-aws-7.streamlit.app/)
 
-## 📁 Project Structure
-
-```
-📁 todo-app/
-├── app.py
-├── requirements.txt
-├── README.md
-└── lambda/
-    ├── add_task.py
-    ├── delete_task.py
-    ├── update_task_status.py
-    └── Auto_Loading_From_DynamoDB.py
-```
-
 ---
+## Future Enhancements
+
+| Feature | Description |
+|---------|-------------|
+| **Soft Delete** | Implement a soft delete functionality to maintain deleted tasks in DynamoDB for potential recovery |
+| **Task Categories** | Add ability to categorize tasks for better organization |
+| **Priority Levels** | Implement priority settings for tasks |
+| **Due Dates** | Add calendar integration with due date reminders |
+| **Mobile App** | Develop a companion mobile application |
+
 
 ## 👤 Author
 
