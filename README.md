@@ -78,7 +78,7 @@ All routes share one API Gateway instance.
 ---
 
 ## 🌐Deployed on Streamlit Cloud
-[https://todo-app-qs9amf4wq5e4xeilsfjkqs.streamlit.app/](https://todo-app-aws-7.streamlit.app/)
+[https://todo-app-qs9amf4wq5e4xeilsfjkqs.streamlit.app/](https://todo-app-aws-7.streamlit.app/](https://todo-app-aws-7.streamlit.app/)
 
 ---
 ## Future Enhancements
@@ -107,3 +107,11 @@ This is a class project built to demonstrate:
 - Multi-user support
 - Cloud-based deployment
 - Secure API integration using AWS Lambda and DynamoDB
+
+
+## Screenshot
+![Screenshot 2025-04-09 182656](https://github.com/user-attachments/assets/c8b78e54-8ac9-4e41-9d48-379baed3aea3)
+![Screenshot 2025-04-09 182613](https://github.com/user-attachments/assets/f56aa921-1d3e-49b7-8217-b74cd2e8766b)
+![Screenshot 2025-04-09 182534](https://github.com/user-attachments/assets/a799cfac-3d20-458b-b85e-536cc4022b26)
+
+
