@@ -8,7 +8,8 @@ This is a fully serverless to-do list application built using **Streamlit** for 
 - 🔄 Update and filter by task status with dropdown: *Waiting to start*, *In Progress*, *Finished*
 - 🔐 Automatically sync all data to **DynamoDB**, tasks are linked to your `user_id` (username).
 - ✅ Host the app on **Streamlit Cloud** and connect to AWS via API Gateway and Lambda
-
+- 
+![Image](https://github.com/user-attachments/assets/e5ed3f55-dd83-41b7-b037-57833a53afe1)
 ---
 ## Features
 
