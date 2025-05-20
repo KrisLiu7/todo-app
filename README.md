@@ -1,4 +1,4 @@
-# 📝 To-Do List Web App (Serverless, Streamlit + AWS)
+# 📝 AWS Serverless Webapp(To-Do-List, Ticket Management), DynamoDB, Lambda, Streamlit
 
 This is a fully serverless to-do list application built using **Streamlit** for the frontend and **AWS services** for the backend.
 
